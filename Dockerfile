@@ -3,7 +3,7 @@ FROM golang:1.26-alpine AS build
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
-COPY main.go addrbook.go ./
+COPY main.go addrbook.go variant_pins.go ./
 RUN CGO_ENABLED=0 go build -o shopapi .
 
 FROM alpine:3.20
